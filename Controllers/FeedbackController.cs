@@ -18,7 +18,7 @@ public class FeedbackController : Controller
     [HttpGet]
     public async Task<ActionResult<IEnumerable<FeedbackDto>>> GetAllFeedback()
     {
-        var feedbacks =  await _sender.Send(new GetAllFeedbacksQuery());
+        var feedbacks = await _sender.Send(new GetAllFeedbacksQuery());
 
         if (feedbacks is null)
         {
@@ -27,7 +27,7 @@ public class FeedbackController : Controller
 
         return Ok(feedbacks);
     }
-    
+
     [HttpPost]
     public async Task<ActionResult<Feedback>> CreateFeedback(CreateFeedbackCommand command)
     {
