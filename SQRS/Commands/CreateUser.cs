@@ -7,11 +7,11 @@ namespace Exam.SQRS.Commands;
 
 public record CreateUserCommand(string LastName, string FirstName) : IRequest<User>;
 
-public class CreateUserCommandHanlder : IRequestHandler<CreateUserCommand, User>
+public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, User>
 {
     private readonly IPostsDbContext _db;
 
-    public CreateUserCommandHanlder(IPostsDbContext db) => _db = db; 
+    public CreateUserCommandHandler(IPostsDbContext db) => _db = db; 
     
     public async Task<User> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
