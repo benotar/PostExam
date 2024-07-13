@@ -10,10 +10,9 @@ public record GetAllPostsQuery : IRequest<IEnumerable<PostDto>>;
 public class GetAllPostsQueryHandler : IRequestHandler<GetAllPostsQuery, IEnumerable<PostDto>>
 { 
     private readonly IPostsDbContext _db;
-
+    
     public GetAllPostsQueryHandler(IPostsDbContext db) => _db = db;
-
-
+    
     public async Task<IEnumerable<PostDto>> Handle(GetAllPostsQuery request, CancellationToken cancellationToken)
     {
         var posts = await _db.Posts
